@@ -9,12 +9,28 @@
 
   <body>
     <div id="app">
-      <p>{{ title }}</p>
-      <p>{{ age }}</p>
-      <button v-on:click="age--">Age ➖</button>
-      <button @click="age++">Age ➕</button>
-      <button @click="changeTitle">Add 🐱‍👤 to Title</button>
-      <button @click="changeTitle2('Hello 🐱‍👤')">Change Title</button>
+      <div v-if="showBooks">
+        <p>{{ title }}</p>
+        <p>{{ author }}</p>
+        <p>{{ age }}</p>
+      </div>
+
+      <!-- v-show directive doesn't remove element from the DOM, it display it none -->
+      <div v-show="showBooks">
+        <p>{{ title }}</p>
+        <p>{{ author }}</p>
+        <p>{{ age }}</p>
+      </div>
+
+      <button @click="showBooks = !showBooks">
+        {{ showBooks ? 'Hide' : 'Show' }} Books
+      </button>
+
+      <!-- v-if | else -->
+      <button @click="showBooks = !showBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
     </div>
     <script src="app.js"></script>
   </body>

@@ -2,16 +2,12 @@ const app = Vue.createApp({
   data() {
     return {
       title: 'The Final Empire',
+      author: '🐱‍👤',
       age: 24,
+      showBooks: true,
     }
   },
   methods: {
-    changeTitle() {
-      this.title += '🐱‍👤'
-    },
-    changeTitle2(title) {
-      this.title = title;
-    }
   }
 });
 

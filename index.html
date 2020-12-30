@@ -10,7 +10,11 @@
   <body>
     <div id="app">
       <p>{{ title }}</p>
-      <pre>{{ test }}</pre>
+      <p>{{ age }}</p>
+      <button v-on:click="age--">Age ➖</button>
+      <button @click="age++">Age ➕</button>
+      <button @click="changeTitle">Add 🐱‍👤 to Title</button>
+      <button @click="changeTitle2('Hello 🐱‍👤')">Change Title</button>
     </div>
     <script src="app.js"></script>
   </body>

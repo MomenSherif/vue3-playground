@@ -6,24 +6,35 @@
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <title>Document</title>
     <style>
-      .box {
-        padding: 100px 0;
-        width: 400px;
-        text-align: center;
-        background-color: #ddd;
-        margin: 20px;
-        display: inline-block;
+      .fav {
+        background-color: #eee;
+        margin: 20px auto;
+      }
+      p, h3, ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        max-width: 960px;
+        list-style: none;
+        background-color: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      li.fav {
+        background-color: goldenrod;
       }
     </style>
   </head>
 
   <body>
     <div id="app">
-      <a v-bind:href="url">Google</a>
-      <a :href="url">Google</a>
-
       <ul>
-        <li v-for="book in books">
+        <li v-for="book in books" :class="{fav: book.isFav}">
           <h3>{{ book.title }}</h3>
           <p>{{ book.author }}</p>
         </li>

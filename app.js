@@ -3,9 +3,9 @@ const app = Vue.createApp({
     return {
       url: 'https://www.google.com',
       books: [
-        { title: '📘', author: '🐱‍👤' },
-        { title: '📗', author: '🐱‍🐉' },
-        { title: '📕', author: '🐱‍🚀' },
+        { title: '📘', author: '🐱‍👤', isFav: true },
+        { title: '📗', author: '🐱‍🐉', isFav: false },
+        { title: '📕', author: '🐱‍🚀', isFav: true },
       ],
     }
   },

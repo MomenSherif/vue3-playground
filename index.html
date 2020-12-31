@@ -20,12 +20,14 @@
   <body>
     <div id="app">
 
-      <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
-      <div class="box" @mouseleave="handleEvent">mouseleave</div>
-      <div class="box" @dblclick="handleEvent">double click</div>
-      <div class="box">Box 4</div>
+      <ul>
+        <li v-for="book in books">
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.author }}</p>
+        </li>
+      </ul>
 
     </div>
     <script src="app.js"></script>
+    </html>
   </body>
-</html>

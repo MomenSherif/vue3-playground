@@ -8,6 +8,9 @@ const app = Vue.createApp({
     }
   },
   methods: {
+    handleEvent(e, number) {
+      console.log(e, number);
+    }
   }
 });
 

@@ -1,6 +1,7 @@
 <template>
   <div class="backdrop">
     <div class="modal">
+      <h1>Modal Title</h1>
       <p>modal content</p>
     </div>
   </div>
@@ -12,7 +13,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .backdrop {
     position: fixed;
     top: 0;
@@ -28,5 +29,9 @@ export default {
     background-color: #fff;
     border-radius: 10px;
   }
-
+  .modal h1 {
+    color: #03cfb4;
+    border: none;
+    padding: 0;
+  }
 </style>

@@ -1,14 +1,16 @@
 <template>
   <h1>{{ title }}</h1>
-  <input type="text" ref="name">
-  <button @click="handleClick">Click me</button>
+  <Modal />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Modal from './components/Modal';
 
 export default {
   name: 'App',
+  components: {
+    Modal,
+  },
   data(){
     return {
       title: 'Hello, World! 🌍'

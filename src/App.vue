@@ -1,10 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal
-    header="Sign up for the Giveaway!"
-    text="Grab your ninja swag for half price!"
-    :instructions="['one', 'two', 'three']"
-  />
+  <Modal :header="header" :text="text" theme="sale" />
 </template>
 
 <script>
@@ -18,6 +14,8 @@ export default {
   data() {
     return {
       title: "Hello, World! 🌍",
+      header: "Sign up for the Giveaway!",
+      text: "Grab your ninja swag for half price!",
     };
   },
 };

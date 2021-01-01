@@ -1,11 +1,8 @@
 <template>
   <div class="backdrop">
-    <div class="modal">
+    <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>{{ header }}</h1>
       <p>{{ text }}</p>
-      <ul v-if="instructions">
-        <li v-for="ins in instructions" :key="ins">{{ ins }}</li>
-      </ul>
     </div>
   </div>
 </template>
@@ -13,7 +10,7 @@
 <script>
 export default {
   name: "Modal",
-  props: ["header", "text", "instructions"],
+  props: ["header", "text", "theme"],
 };
 </script>
 
@@ -37,5 +34,14 @@ export default {
   color: #03cfb4;
   border: none;
   padding: 0;
+}
+
+.modal.sale {
+  background-color: crimson;
+  color: #fff;
+}
+
+.modal.sale h1 {
+  color: #fff;
 }
 </style>

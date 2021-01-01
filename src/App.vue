@@ -1,29 +1,26 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />
+  <Modal
+    header="Sign up for the Giveaway!"
+    text="Grab your ninja swag for half price!"
+    :instructions="['one', 'two', 'three']"
+  />
 </template>
 
 <script>
-import Modal from './components/Modal';
+import Modal from "./components/Modal";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
-  data(){
+  data() {
     return {
-      title: 'Hello, World! 🌍'
-    }
+      title: "Hello, World! 🌍",
+    };
   },
-  methods: {
-    handleClick(){
-      console.log(this.$refs.name);
-      this.$refs.name.classList.add('active');
-      this.$refs.name.focus();
-    },
-  }
-}
+};
 </script>
 
 <style >

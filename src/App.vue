@@ -1,40 +1,38 @@
 <template>
-  <h1>{{ title }}</h1>
-  <p>Welcome...</p>
-  <teleport to=".modals" v-if="showModal">
-    <Modal @close="toggleModal">
-      <template v-slot:links>
-        <a href="#">sign up</a>
-        <a href="#">more info</a>
-      </template>
-      <h1>Ninja Giveaway!</h1>
-      <p>Grab your ninja sawg for half price!</p>
-    </Modal>
-  </teleport>
-  <button @click="toggleModal">open modal</button>
+  <h1>Ninja Reaction Time</h1>
+  <button @click="start" :disabled="isPlaying">play</button>
+  <Block v-if="isPlaying" :delay="delay" />
 </template>
 
 <script>
-import Modal from "./components/Modal";
-
+import Block from "./components/Block";
 export default {
   name: "App",
   components: {
-    Modal,
+    Block,
   },
   data() {
     return {
-      title: "Hello, World! 🌍",
-      showModal: false,
+      isPlaying: false,
+      delay: null,
     };
   },
   methods: {
-    toggleModal() {
-      this.showModal = !this.showModal;
+    start() {
+      this.delay = 2000 + Math.random() * 5000;
+      this.isPlaying = true;
     },
   },
 };
 </script>
 
-<style >
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #444;
+  margin-top: 60px;
+}
 </style>

@@ -5,6 +5,7 @@
       <h2>{{ job.title }}</h2>
     </router-link>
   </div>
+  <p v-if="!jobs.length">Loading...</p>
 </template>
 
 <script>
@@ -12,12 +13,14 @@ export default {
   name: "Jobs",
   data() {
     return {
-      jobs: [
-        { id: 1, title: "Ninja UI/UX Designer", details: "lorem " },
-        { id: 2, title: "Ninja Frontend Developer", details: "lorem " },
-        { id: 3, title: "Ninja Backend Developer", details: "lorem " },
-      ],
+      jobs: [],
     };
+  },
+  mounted() {
+    fetch("http://localhost:3000/jobs")
+      .then((res) => res.json())
+      .then((data) => (this.jobs = data))
+      .catch(console.log);
   },
 };
 </script>

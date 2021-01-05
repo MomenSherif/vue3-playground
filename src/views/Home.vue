@@ -1,49 +1,34 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search" />
-    <p>search term - {{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
+    <PostList :posts="posts" />
   </div>
 </template>
 
 <script>
-import { ref, computed, watch, watchEffect } from "vue";
+import { ref } from "vue";
+import PostList from "../components/PostList";
 
 export default {
   name: "Home",
+  components: { PostList },
   setup() {
-    const search = ref("");
-    const names = ref([
-      "mario",
-      "yoshi",
-      "lugi",
-      "toad",
-      "bowser",
-      "koppa",
-      "peach",
+    const posts = ref([
+      {
+        id: 1,
+        title: "Welcome to the blog",
+        body:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque aperiam amet. Possimus earum tenetur odio facere unde nobis fuga suscipit. Dolorum neque veniam error dicta repellat deserunt nostrum aliquam culpa quo, fugit quae blanditiis officia molestiae earum corporis incidunt necessitatibus autem harum dolores illum ad! Suscipit maiores similique recusandae accusamus. Minima vero nam iure nisi, totam eius veniam et odit a ipsum soluta nulla asperiores ducimus illum, harum porro explicabo. Nesciunt quod sit aliquam rem laudantium, quibusdam accusantium optio. Repellendus quisquam veritatis nulla dolores. Nihil alias animi ut, doloremque provident sint in asperiores repudiandae dicta velit, fugiat minima ipsum!",
+      },
+      {
+        id: 2,
+        title: "Top 5 CSS tips",
+        body:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque aperiam amet. Possimus earum tenetur odio facere unde nobis fuga suscipit. Dolorum neque veniam error dicta repellat deserunt nostrum aliquam culpa quo, fugit quae blanditiis officia molestiae earum corporis incidunt necessitatibus autem harum dolores illum ad! Suscipit maiores similique recusandae accusamus. Minima vero nam iure nisi, totam eius veniam et odit a ipsum soluta nulla asperiores ducimus illum, harum porro explicabo. Nesciunt quod sit aliquam rem laudantium, quibusdam accusantium optio. Repellendus quisquam veritatis nulla dolores. Nihil alias animi ut, doloremque provident sint in asperiores repudiandae dicta velit, fugiat minima ipsum!",
+      },
     ]);
 
-    const stopWatch = watch(search, () => {
-      console.log("watch");
-    });
-
-    // Watch effect runs when component mount & any dependency update
-    const stopEffect1 = watchEffect(() => {
-      console.log("effect");
-    });
-
-    const stopEffect2 = watchEffect(() => {
-      console.log("effect", search.value); // has Dep
-    });
-
-    const matchingNames = computed(() =>
-      names.value.filter((name) =>
-        name.toLowerCase().includes(search.value.toLowerCase())
-      )
-    );
-
-    return { names, search, matchingNames };
+    return { posts };
   },
 };
 </script>

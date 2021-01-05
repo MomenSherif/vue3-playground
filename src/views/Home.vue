@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, watch, watchEffect } from "vue";
 
 export default {
   name: "Home",
@@ -23,6 +23,19 @@ export default {
       "koppa",
       "peach",
     ]);
+
+    const stopWatch = watch(search, () => {
+      console.log("watch");
+    });
+
+    // Watch effect runs when component mount & any dependency update
+    const stopEffect1 = watchEffect(() => {
+      console.log("effect");
+    });
+
+    const stopEffect2 = watchEffect(() => {
+      console.log("effect", search.value); // has Dep
+    });
 
     const matchingNames = computed(() =>
       names.value.filter((name) =>
